@@ -4,7 +4,7 @@
       "type": "custom",
       "candid": "https://github.com/dfinity/ic/releases/download/ledger-suite-icrc-2025-02-27/ledger.did",
       "wasm": "https://github.com/dfinity/ic/releases/download/ledger-suite-icrc-2025-02-27/ic-icrc1-ledger.wasm.gz",
-      "init_arg": "(variant {Init = record { token_symbol = \"btoken\"; token_name = \"Bootcamp Coin\"; minting_account = record { owner = principal \"myv7y-ja5zl-4yerz-wbzhl-ggaxg-n7ali-cimwv-artyv-dv5xw-qk27j-pqe\"}; transfer_fee = 10_000; metadata = vec {}; feature_flags = opt record{icrc2 = true}; initial_balances = vec { record { record { owner = principal \"nulzx-ipasz-zvptg-uw5cf-enx3s-yyzdg-svw3d-r6fiv-egusx-ajymb-5ae\"; }; 100_000_000_000; }; }; archive_options = record { num_blocks_to_archive = 1000; trigger_threshold = 2000; controller_id = principal \"vplol-32ztq-oz737-7zrsh-c4sb7-d2oo2-vlvbs-xc2xu-vuxjp-xnx5o-7ae\"; cycles_for_archive_creation = opt 10000000000000; }; } })" 
+      "init_arg": "(variant {Init = record { token_symbol = \"EXTC\"; token_name = \"Exercicio Coin\"; minting_account = record { owner = principal \"myv7y-ja5zl-4yerz-wbzhl-ggaxg-n7ali-cimwv-artyv-dv5xw-qk27j-pqe\"}; transfer_fee = 10_000; metadata = vec {}; feature_flags = opt record{icrc2 = true}; initial_balances = vec { record { record { owner = principal \"nulzx-ipasz-zvptg-uw5cf-enx3s-yyzdg-svw3d-r6fiv-egusx-ajymb-5ae\"; }; 100_000_000_000; }; }; archive_options = record { num_blocks_to_archive = 1000; trigger_threshold = 2000; controller_id = principal \"vplol-32ztq-oz737-7zrsh-c4sb7-d2oo2-vlvbs-xc2xu-vuxjp-xnx5o-7ae\"; cycles_for_archive_creation = opt 10000000000000; }; } })" 
     },
     "btoken_backend": {
       "main": "src/btoken_backend/main.mo",
