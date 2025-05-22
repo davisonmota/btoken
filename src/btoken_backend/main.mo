@@ -103,4 +103,10 @@ actor Btoken {
   public query func getCanisterPrincipal() : async Text {
     return Principal.toText(Principal.fromActor(Btoken));
   }; 
+
+  public func getCanisterBalance() : async Nat {
+    let owner = Principal.fromActor(Btoken);
+    let balance = await getBalance(owner);      
+    return balance;
+  };
 };
