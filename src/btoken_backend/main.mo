@@ -5,6 +5,14 @@ import Principal "mo:base/Principal";
 import Text "mo:base/Text";
 
 actor Btoken {
+  type TokenInfo = {
+    name : Text; 
+    symbol : Text; 
+    totalSupply : Nat; 
+    fee : Nat; 
+    mintingPrincipal : Text; 
+  }; 
+
   public func getTokenName(): async Text {
     // Funções Query não podem ser assíncronas
     let name = await BtokenLedger.icrc1_name();
@@ -36,4 +44,23 @@ actor Btoken {
       };
    };
   };
+
+  public func getTokenInfo() : async TokenInfo {
+    let name = await getTokenName();
+    let symbol = await getTokenSymbol();
+    let totalSupply = await getTokenTotalSupply();
+    let fee = await getTokenFee();
+    let mintingPrincipal = await getTokenMintingPrincipal();
+
+
+    let info : TokenInfo = { 
+      name = name;
+      symbol = symbol;
+      totalSupply = totalSupply;
+      fee = fee;
+      mintingPrincipal = mintingPrincipal;
+    };
+      
+    return info;
+  };  
 };
