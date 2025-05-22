@@ -99,4 +99,8 @@ actor Btoken {
     let balance = await BtokenLedger.icrc1_balance_of({ owner = owner; subaccount = null });      
     return balance;
   }; 
+
+  public query func getCanisterPrincipal() : async Text {
+    return Principal.toText(Principal.fromActor(Btoken));
+  }; 
 };
