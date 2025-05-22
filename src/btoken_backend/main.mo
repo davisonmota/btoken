@@ -21,4 +21,8 @@ actor Btoken {
     return totalSupply;
   };
   
+  public func getTokenFee(): async Nat {
+    let fee = await BtokenLedger.icrc1_fee();
+    return fee;
+  };
 };
