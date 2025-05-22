@@ -1,5 +1,6 @@
 import BtokenLedger "canister:btoken_icrc1_ledger_canister";
 
+import Nat "mo:base/Nat";
 import Principal "mo:base/Principal";
 import Text "mo:base/Text";
 
@@ -15,4 +16,9 @@ actor Btoken {
     return symbol;
   };
 
+  public func getTokenTotalSupply(): async Nat {
+    let totalSupply = await BtokenLedger.icrc1_total_supply();
+    return totalSupply;
+  };
+  
 };
