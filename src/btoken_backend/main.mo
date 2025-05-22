@@ -25,4 +25,15 @@ actor Btoken {
     let fee = await BtokenLedger.icrc1_fee();
     return fee;
   };
+
+  public func getTokenMintingPrincipal() : async Text {
+    let mintingAccountOpt = await BtokenLedger.icrc1_minting_account();
+
+    switch (mintingAccountOpt) {
+      case (null) { return "Nenhuma conta de mintagem localizada!"; };
+      case (?account) {
+        return Principal.toText(account.owner);
+      };
+   };
+  };
 };
