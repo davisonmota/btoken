@@ -1,7 +1,9 @@
 import BtokenLedger "canister:btoken_icrc1_ledger_canister";
 
+import Error "mo:base/Error";
 import Nat "mo:base/Nat";
 import Principal "mo:base/Principal";
+import Result "mo:base/Result";
 import Text "mo:base/Text";
 
 actor Btoken {
@@ -13,6 +15,11 @@ actor Btoken {
     mintingPrincipal : Text; 
   }; 
 
+  type TransferArgs = {
+    amount : Nat;
+    toAccount : BtokenLedger.Account;
+  }; 
+  
   public func getTokenName(): async Text {
     // Funções Query não podem ser assíncronas
     let name = await BtokenLedger.icrc1_name();
@@ -62,5 +69,29 @@ actor Btoken {
     };
       
     return info;
+  }; 
+
+  public shared func transfer(args : TransferArgs) : async Result.Result<BtokenLedger.BlockIndex, Text> {
+    let transferArgs : BtokenLedger.TransferArg = {
+      memo = null;
+      amount = args.amount;
+      from_subaccount = null;
+      fee = null;
+      to = args.toAccount;
+      created_at_time = null;
+    };
+
+    try {
+      let transferResult = await BtokenLedger.icrc1_transfer(transferArgs);
+
+      switch (transferResult) {
+        case (#Err(transferError)) {
+          return #err("Não foi possível transferir fundos: " # debug_show (transferError));
+        };
+        case (#Ok(blockIndex)) { return #ok blockIndex };
+      };
+    } catch (error : Error) {
+      return #err("Mensagem de rejeição: " # Error.message(error));
+    };
   };  
 };
