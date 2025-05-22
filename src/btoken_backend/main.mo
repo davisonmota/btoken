@@ -94,4 +94,9 @@ actor Btoken {
       return #err("Mensagem de rejeição: " # Error.message(error));
     };
   };  
+
+  public func getBalance(owner: Principal) : async Nat {
+    let balance = await BtokenLedger.icrc1_balance_of({ owner = owner; subaccount = null });      
+    return balance;
+  }; 
 };
