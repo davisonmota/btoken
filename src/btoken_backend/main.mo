@@ -9,4 +9,10 @@ actor Btoken {
     let name = await BtokenLedger.icrc1_name();
     return name;
   };
+
+  public func getTokenSymbol(): async Text {
+    let symbol = await BtokenLedger.icrc1_symbol();
+    return symbol;
+  };
+
 };
