@@ -1,7 +1,7 @@
 import { btoken_backend } from 'declarations/btoken_backend';
 import { useEffect, useState } from 'react';
 import TokenCard from "./components/TokenCard";
-
+import TransferForm from "./components/TransferForm";
 function App() {
   const [name, setName] = useState('');
   const [symbol, setSymbol] = useState('');
@@ -42,6 +42,9 @@ function App() {
             supply={supply}
             minter={minter}
         />
+        
+        <TransferForm />  
+      
       </div>
     </main>
   );

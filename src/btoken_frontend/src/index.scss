@@ -47,6 +47,72 @@
   word-break: break-all;
 }
 
+transfer-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.input-group {
+  margin-bottom: 18px;
+  padding-right: 25px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.balance {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.btn-transfer {
+  width: 100%;
+  padding: 12px;
+  background-color: #4b7bec;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-transfer:hover {
+  background-color: #3867d6;
+}
+
+.message {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #2f3542;
+}   
+
 /* Responsividade */
 @media (max-width: 480px) {
   .token-card {
